@@ -19,7 +19,7 @@ server.on("request", (request, response) => {
         console.error(err);
     });
 });
-server.listen(process.env.PORT || 8008 () => {
+server.listen(process.env.PORT, () => {
     console.log("Server listening at \$(process.env.PORT)");
 });
 
