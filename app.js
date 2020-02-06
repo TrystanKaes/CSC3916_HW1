@@ -4,7 +4,7 @@ server.on("request", (request, response) => {
     var body = [];
     request.on("data", chunk => {
         body.push(chunk);
-        console.log(bodyString);
+        console.log(body);
     });
     request
         .on("end", () => {
