@@ -4,13 +4,13 @@ server.on("request", (request, response) => {
     var body = [];
     request.on("data", chunk => {
         body.push(chunk);
+        console.log(bodyString);
     });
     request
         .on("end", () => {
             let bodyString = body.concat().toString();
             console.log(bodyString);
-            response.end(bodyString);
-            response.status(200).send(bodyString).end()
+            response.write(bodyString);
         })
         .on("error", () => {
             response.statusCode = 400;
