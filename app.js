@@ -21,7 +21,7 @@ server.on("request", (request, response) => {
     });
 });
 server.listen(process.env.PORT, () => {
-    console.log("Server listening at \$(process.env.PORT)");
+    console.log("Server listening at %s",process.env.PORT.toString());
 });
 
 module.exports = server; // for testing
