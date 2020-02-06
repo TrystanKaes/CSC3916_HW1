@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shawnmccarthy/week3.git"
+    "url": "git+https://github.com/TrystanKaes/CSC3916_HW1.git"
   },
-  "author": "Shawn McCarthy",
-  "license": "MIT",
+  "author": "Trystan Kaes",
+  "license": "Student",
   "bugs": {
-    "url": "https://github.com/shawnmccarthy/week3/issues"
+    "url": "https://github.com/TrystanKaes/CSC3916_HW1"
   },
-  "homepage": "https://github.com/shawnmccarthy/week3#readme",
+  "homepage": "https://github.com/TrystanKaes/CSC3916_HW1#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
