@@ -1,18 +1,17 @@
 var server = require("http").createServer();
 
 server.on("request", (request, response) => {
-    var body = [];
+    var message = [];
     request.on("data", chunk => {
-        body.push(chunk);
-        // console.log(body);
+        console.log("request on data");
+        message.push(chunk);
     });
     request
         .on("end", () => {
             console.log("request on end");
-            let bodyString = body.concat().toString();
-            console.log(bodyString);
-            // response.write(bodyString);
-            response.end(bodyString);
+            let messageString = message.concat().toString();
+            console.log(messageString);
+            response.end(messageString);
         })
         .on("error", () => {
             console.log("request on error");
