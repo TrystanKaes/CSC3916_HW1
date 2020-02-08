@@ -10,7 +10,7 @@ server.on("request", (request, response) => {
         .on("end", () => {
             let bodyString = body.concat().toString();
             console.log(bodyString);
-            request.write(bodyString);
+            response.write(bodyString);
         })
         .on("error", () => {
             response.statusCode = 400;
