@@ -6,7 +6,8 @@ server.on("request", (request, response) => {
         body.push(chunk);
         // console.log(body);
         console.log(chunk);
-        console.log(body.concat.toString());
+        let newString = body.concat().toString();
+        console.log(newString);
         console.log("is chunk");
     });
     request
