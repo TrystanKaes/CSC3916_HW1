@@ -10,11 +10,12 @@ server.on("request", (request, response) => {
         console.log(newString);
         console.log("is chunk");
     });
-    request
+    response
         .on("end", () => {
             let bodyString = body.concat().toString();
             console.log(bodyString);
             response.write(bodyString);
+            response.end();
         })
         .on("error", () => {
             response.statusCode = 400;
