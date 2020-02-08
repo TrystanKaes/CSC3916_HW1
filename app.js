@@ -9,7 +9,7 @@ server.on("request", (request, response) => {
     request
         .on("end", () => {
             console.log("request on end");
-            let messageString = message.concat().toString();
+            let messageString = message.concat().toString() + " | This seems broken.";
             console.log(messageString);
             response.end(messageString);
         })
