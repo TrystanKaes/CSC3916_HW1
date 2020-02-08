@@ -6,6 +6,7 @@ server.on("request", (request, response) => {
         body.push(chunk);
         // console.log(body);
         console.log(chunk);
+        console.log("is chunk");
     });
     request
         .on("end", () => {
