@@ -1,7 +1,5 @@
 var server = require("http").createServer();
 
-"is this really a thing?";
-
 server.on("request", (request, response) => {
     var message = [];
     request.on("data", chunk => {
@@ -11,7 +9,8 @@ server.on("request", (request, response) => {
     request
         .on("end", () => {
             console.log("request on end");
-            let messageString = message.concat().toString();
+            // let messageString = message.concat().toString();
+            let messageString = "It's done broke.";
             console.log(messageString);
             response.end(messageString);
         })
