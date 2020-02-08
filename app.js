@@ -5,23 +5,22 @@ server.on("request", (request, response) => {
     request.on("data", chunk => {
         body.push(chunk);
         // console.log(body);
-        console.log(chunk);
-        let newString = body.concat().toString();
-        console.log(newString);
-        console.log("is chunk");
     });
-    response
+    request
         .on("end", () => {
+            console.log("request on end");
             let bodyString = body.concat().toString();
             console.log(bodyString);
-            response.write(bodyString);
-            response.end();
+            // response.write(bodyString);
+            response.end(bodyString);
         })
         .on("error", () => {
+            console.log("request on error");
             response.statusCode = 400;
             response.end();
         });
     response.on("error", err => {
+        console.log("response on error");
         console.error(err);
     });
 });
