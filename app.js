@@ -9,10 +9,11 @@ server.on("request", (request, response) => {
     request
         .on("end", () => {
             console.log("request on end");
-            // let messageString = message.concat().toString();
-            let messageString = "It's done broke.";
+            let messageString = message.concat().toString();
+            let failure = "It's done broke.";
+            response.write(messageString);
             console.log(messageString);
-            response.end(messageString);
+            response.end(failure);
         })
         .on("error", () => {
             console.log("request on error");
