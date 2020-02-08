@@ -1,26 +1,16 @@
 var server = require("http").createServer();
 
 server.on("request", (request, response) => {
-
-    request.setEncoding("utf8");
-    var message = "";
-
+    var message = [];
     request.on("data", chunk => {
         console.log("request on data");
-        for(var i = 0; i <= chunk.length; i++) {
-            var char = chunk.charAt(i);
-            message += char;
-
-            if (char == "\n") {
-                break;
-            }
-        }
+        message.push(chunk);
     });
     request
         .on("end", () => {
             console.log("request on end");
-            let messageString = message.concat().toString();
-            // let messageString = "It's done broke.";
+            // let messageString = message.concat().toString();
+            let messageString = "It's done broke.";
             console.log(messageString);
             response.end(messageString);
         })
