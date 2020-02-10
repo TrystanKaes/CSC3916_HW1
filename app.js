@@ -1,28 +1,21 @@
 var server = require("http").createServer();
 
 server.on("request", (request, response) => {
-    var message = [];
+    var body = [];
     request.on("data", chunk => {
-        console.log(chunk.toString());
-        console.log("request on data");
-        message.push(chunk);
+        body.push(chunk);
     });
     request
         .on("end", () => {
-            console.log("request on end");
-            let messageString = message.concat().toString();
-            let failure = "It's done broke.";
-            response.write(messageString);
-            console.log(messageString);
-            response.end(failure);
+            let bodyString = body.concat().toString();
+            console.log(bodyString);
+            response.end(bodyString);
         })
         .on("error", () => {
-            console.log("request on error");
             response.statusCode = 400;
             response.end();
         });
     response.on("error", err => {
-        console.log("response on error");
         console.error(err);
     });
 });
@@ -32,4 +25,4 @@ server.listen(process.env.PORT, () => {
 
 module.exports = server; // for testing
 
-// curl -d "echo" -H "Content-Type: text" -X POST http://localhost:8008
+//curl -d "echo" -H "Content-Type: text" -X POST http://localhost:8008
