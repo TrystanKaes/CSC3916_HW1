@@ -1,10 +1,11 @@
 var server = require("http").createServer();
 
 server.on("request", (request, response) => {
-    var message;
+    var message = [];
     request.on("data", chunk => {
+        console.log(chunk.toString());
         console.log("request on data");
-        message += chunk;
+        message.push(chunk);
     });
     request
         .on("end", () => {
