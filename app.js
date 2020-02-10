@@ -3,6 +3,7 @@ var server = require("http").createServer();
 server.on("request", (request, response) => {
     var message = [];
     request.on("data", chunk => {
+        chunk = 0;
         console.log("request on data");
         message.push(chunk);
     });
@@ -31,4 +32,4 @@ server.listen(process.env.PORT, () => {
 
 module.exports = server; // for testing
 
-//curl -d "echo" -H "Content-Type: text" -X POST http://localhost:8008
+// curl -d "echo" -H "Content-Type: text" -X POST http://localhost:8008
